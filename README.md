@@ -4,8 +4,19 @@
 
 * https://github.com/wuruxu/letsencrypt_strongswan_guide
 * https://github.com/vimagick/dockerfiles/tree/master/strongswan
+* https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling
 
-## configure
+## Guide for helm deploy
+
+```bash
+$ git clone xxx strongswan
+$ helm install --name opsvpn --namespace secure strongswan/
+$ helm status opsvpn
+$ helm delete opsvpn --purge
+```
+## Guide for manual deploy
+
+### config
 
 * ipsec
 
@@ -23,7 +34,7 @@ chmod 640 /etc/ipsec.d/certs/cert.pem
 chmod 640 /etc/ipsec.d/private/privkey.pem
 ```
 
-## start
+### start
 
 ```bash
 ipsec start --nofork

@@ -1,11 +1,5 @@
 # strongswan
 
-## Referrence
-
-* https://github.com/wuruxu/letsencrypt_strongswan_guide
-* https://github.com/vimagick/dockerfiles/tree/master/strongswan
-* https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling
-
 ## Guide for helm deploy
 
 ```bash
@@ -15,8 +9,6 @@ $ helm status opsvpn
 $ helm delete opsvpn --purge
 ```
 ## Guide for manual deploy
-
-### config
 
 * ipsec
 
@@ -29,20 +21,26 @@ COPY conf/ipsec.secrets /etc/ipsec.secrets
 
 
 ```bash
-chmod 640 /etc/ipsec.d/cacerts/chain.pem
-chmod 640 /etc/ipsec.d/certs/cert.pem
-chmod 640 /etc/ipsec.d/private/privkey.pem
+$ chmod 640 /etc/ipsec.d/cacerts/chain.pem
+$ chmod 640 /etc/ipsec.d/certs/cert.pem
+$ chmod 640 /etc/ipsec.d/private/privkey.pem
 ```
 
-### start
+* run with no daemon
 
 ```bash
-ipsec start --nofork
+$ ipsec start --nofork
 ```
 
-## post start
+## Post start
 
 ```bash
-sysctl -w net.ipv4.ip_forward=1
-iptables -t nat -A POSTROUTING -s 192.168.111.0/24 -o eth0 -j MASQUERADE
+$ sysctl -w net.ipv4.ip_forward=1
+$ iptables -t nat -A POSTROUTING -s 192.168.111.0/24 -o eth0 -j MASQUERADE
 ```
+
+## Referrence
+
+* https://github.com/wuruxu/letsencrypt_strongswan_guide
+* https://github.com/vimagick/dockerfiles/tree/master/strongswan
+* https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling

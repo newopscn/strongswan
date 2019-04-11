@@ -1,6 +1,10 @@
 # strongswan
 
+[Strongswan DockerHub](https://hub.docker.com/r/newops/strongswan)
+
 ## Guide for helm deploy
+
+[Helm charts for strongswan](https://github.com/newopscn/k8s-charts/tree/master/strongswan)
 
 ```bash
 $ git clone xxx strongswan

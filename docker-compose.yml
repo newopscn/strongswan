@@ -6,12 +6,12 @@ services:
       - "500:500/udp"
       - "4500:4500/udp"
     volumes:
-      - conf/ipsec.conf:/etc/ipsec.conf
-      - conf/ipsec.secrets:/etc/ipsec.secrets
-      - conf/eap-radius.conf:/etc/strongswan.d/charon/eap-radius.conf
-      - ssl/chain.pem:/etc/ipsec.d/cacerts/chain.pem
-      - ssl/cert.pem:/etc/ipsec.d/certs/cert.pem
-      - ssl/privkey.pem:/etc/ipsec.d/private/privkey.pem 
+      - ./conf/ipsec.conf:/etc/ipsec.conf
+      - ./conf/ipsec.secrets:/etc/ipsec.secrets
+      - ./conf/eap-radius.conf:/etc/strongswan.d/charon/eap-radius.conf
+      - ./ssl/chain.pem:/etc/ipsec.d/cacerts/chain.pem
+      - ./ssl/cert.pem:/etc/ipsec.d/certs/cert.pem
+      - ./ssl/privkey.pem:/etc/ipsec.d/private/privkey.pem
     sysctls:
       - net.ipv4.ip_forward=1
     privileged: yes

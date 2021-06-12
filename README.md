@@ -38,10 +38,21 @@ $ ipsec start --nofork
 
 ## Post start
 
+* route
+
 ```bash
 $ sysctl -w net.ipv4.ip_forward=1
+```
+
+* firewall
+
+```bash
 $ iptables -t nat -A POSTROUTING -s 192.168.111.0/24 -o eth0 -j MASQUERADE
 ```
+
+* listenning ports
+
+**Listenning UDP port 500&4500 by HostPort or LoadBalancer**
 
 ## Referrence
 
